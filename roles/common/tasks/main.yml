@@ -1,0 +1,7 @@
+---
+- name: update and upgrade APT packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+  become: true
+  when: upgrade_packages | bool == true

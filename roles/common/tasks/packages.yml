@@ -1,0 +1,10 @@
+---
+- name: install cockpit
+  apt:
+    name: cockpit
+  become: true
+
+- name: install tmux
+  apt: 
+    name: tmux
+  become: true
