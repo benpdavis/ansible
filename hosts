@@ -1,5 +1,4 @@
-[debian]
-n100.lan
-pi5.lan
-pi4.lan
-
+[pi]
+pi3
+pi4
+pi5

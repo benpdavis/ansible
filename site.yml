@@ -1,5 +1,5 @@
 ---
-- name: debian
-  hosts: debian
+- name: default
+  hosts: pi
   roles:
     - common
