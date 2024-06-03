@@ -1,3 +1,7 @@
+[debian]
+node
+n100
+
 [pi]
 pi3
 pi4
