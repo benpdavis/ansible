@@ -6,3 +6,6 @@ n100
 pi3
 pi4
 pi5
+
+[localhost]
+localhost ansible_connection=local
