@@ -17,3 +17,23 @@
   apt:
     name: docker-ce
   become: true
+
+- name: install docker-ce-cli
+  apt:
+    name: docker-ce-cli
+  become: true
+
+- name: install containerd.io
+  apt:
+    name: containerd.io
+  become: true
+
+- name: install docker-buildx-plugin
+  apt:
+    name: docker-buildx-plugin
+  become: true
+
+- name: install docker-compose-plugin
+  apt:
+    name: docker-compose-plugin
+  become: true
