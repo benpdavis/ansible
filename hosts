@@ -1,3 +1,6 @@
+[docker]
+n100
+
 [debian]
 node
 n100
@@ -7,5 +10,5 @@ pi3
 pi4
 pi5
 
-[localhost]
+[self]
 localhost ansible_connection=local

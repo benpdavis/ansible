@@ -8,3 +8,13 @@
   apt: 
     name: tmux
   become: true
+
+- name: install ca-certificates
+  apt: 
+    name: ca-certificates
+  become: true
+
+- name: install curl
+  apt: 
+    name: curl
+  become: true

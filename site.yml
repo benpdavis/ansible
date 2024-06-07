@@ -3,3 +3,8 @@
   hosts: all
   roles:
     - common
+
+- name: docker
+  hosts: docker
+  roles:
+    - docker
