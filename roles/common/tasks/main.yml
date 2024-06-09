@@ -1,9 +1,2 @@
 ---
-- name: update and upgrade APT packages
-  apt:
-    upgrade: yes
-    update_cache: yes
-  become: true
-  when: upgrade_packages | bool == true
-
-- include_tasks: packages.yml
+- include_tasks: package.yml

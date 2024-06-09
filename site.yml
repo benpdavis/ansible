@@ -5,6 +5,11 @@
     - common
 
 - name: docker
-  hosts: docker
+  hosts: test
   roles:
     - docker
+
+- name: apcupsd
+  hosts: test
+  roles:
+    - apcupsd
