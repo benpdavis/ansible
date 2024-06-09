@@ -3,3 +3,8 @@
   apt:
     name: apcupsd
   become: true
+
+- name: install apache2
+  apt:
+    name: apache2
+  become: true

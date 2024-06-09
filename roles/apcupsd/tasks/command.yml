@@ -1,0 +1,4 @@
+---
+- name: 
+  shell: a2enmod cgi
+  become: true
