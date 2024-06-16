@@ -1,11 +1,8 @@
 [test]
 n100
 
-[media-hosts]
-n100
-
-[docker-hosts]
-n100
+[apcupsd-hosts]
+node
 
 [debian-hosts]
 node
