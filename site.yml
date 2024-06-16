@@ -11,12 +11,12 @@
     - sudo
     - common
 
-- name: docker
-  hosts: docker-hosts
+- name: apcupsd
+  hosts: apcupsd-hosts
+  roles:
+    - apcupsd
+
+- name: docker-test
+  hosts: test
   roles:
     - docker
-
-- name: media
-  hosts: media-hosts
-  roles:
-    - media-server
