@@ -1,15 +1,22 @@
 ---
-- name: default
-  hosts: all
+- name: debian
+  hosts: debian-hosts
   roles:
+    - sudo
+    - common
+
+- name: pi
+  hosts: pi-hosts
+  roles:
+    - sudo
     - common
 
 - name: docker
-  hosts: test
+  hosts: docker-hosts
   roles:
     - docker
 
-- name: apcupsd
-  hosts: test
+- name: media
+  hosts: media-hosts
   roles:
-    - apcupsd
+    - media-server

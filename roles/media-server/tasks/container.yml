@@ -1,0 +1,12 @@
+---
+- name: copy Docker Compose files
+  copy:
+    src: files/{{ item }}
+    dest: ./{{ item }}
+  loop:
+  - docker-compose.yml
+
+- name: Run container
+  shell:
+    cmd: "docker compose -f docker-compose.yml up -d"
+  become: true
