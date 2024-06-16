@@ -3,13 +3,16 @@
   file:
     path: "./.ssh"
     state: directory
+  when: deploykey | bool == true
 
 - name: create empty file
   file:
     path: "./.ssh/authorized_keys"
     state: touch
+  when: deploykey | bool == true
 
 - name: put pubkey
   lineinfile:
     path: "./.ssh/authorized_keys"
     line: "{{ pubkey }}"
+  when: deploykey | bool == true

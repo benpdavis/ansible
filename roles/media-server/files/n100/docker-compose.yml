@@ -1,92 +1,20 @@
 ---
 services:
-  plex:
-    container_name: plex
-    image: plexinc/pms-docker:latest
-    restart: unless-stopped
-    ports:
-      - 32400:32400/tcp
-      - 8324:8324/tcp
-      - 32469:32469/tcp
-      - 1900:1900/udp
-      - 32410:32410/udp
-      - 32412:32412/udp
-      - 32413:32413/udp
-      - 32414:32414/udp
-    environment:
-      - TZ=Europe/London
-      - PLEX_CLAIM=CLAIMTOKEN
-      - ADVERTISE_IP=http://{{ansible_default_ipv4.address}}:32400/
-    hostname: node
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    network_mode: 'host'
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
     volumes:
-      - /Apps/plex/config:/config
-      - /Music:/Music
-      - /Movies:/Movies
-      - /Series:/Series
-  sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:latest
-    container_name: sabnzbd
+      - /Apps/jellyfin/config:/config
+      - /media/md0/Audio/Music:/Music
+      - /media/md0/Video/Movies:/Movies
+      - /media/md0/Video/Series:/Series
+    restart: 'unless-stopped'
+    # Optional - alternative address used for autodiscovery
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - /Apps/sabnzbd/config:/config
-      - /Downloads:/Downloads #optional
-    ports:
-      - 8080:8080
-    restart: unless-stopped
-  prowlarr:
-    container_name: prowlarr
-    image: ghcr.io/hotio/prowlarr:latest
-    ports:
-      - "9696:9696"
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=Europe/London
-    volumes:
-      - /Apps/prowlarr/config:/config
-  sonarr:
-    image: lscr.io/linuxserver/sonarr:latest
-    container_name: sonarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - /Apps/sonarr/config:/config
-      - /Series:/Series
-      - /Downloads:/Downloads
-    ports:
-      - 8989:8989
-    restart: unless-stopped
-  radarr:
-    container_name: radarr
-    image: ghcr.io/hotio/radarr:latest
-    ports:
-      - "7878:7878"
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=Europe/London
-    volumes:
-      - /mnt/md0/Apps/radarr/config:/config
-      - /Movies:/Movies
-      - /Downloads:/Downloads  
-  lidarr:
-    image: lscr.io/linuxserver/lidarr:latest
-    container_name: lidarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - /Apps/lidarr/appdata/config:/config
-      - /Music:/Music
-      - /Downloads:/Downloads
-    ports:
-      - 8686:8686
-    restart: unless-stopped
+      - JELLYFIN_PublishedServerUrl=http://n100:8096
+    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'

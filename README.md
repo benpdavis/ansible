@@ -18,9 +18,9 @@ sudo apt install sshpass
 ### debian - ansible push
 `ansible-playbook site.yml -i hosts --ask-pass --ask-become-pass`
 ### debian - ansible push with limit
-`ansible-playbook site.yml -i hosts --ask-pass --ask-become-pass --limit debian`
+`ansible-playbook site.yml -i hosts --ask-pass --ask-become-pass --limit test`
 ### debian - ansible push with limit and extra variables
-`ansible-playbook site.yml -i hosts --ask-pass --ask-become-pass --limit debian --extra-vars='upgrade_packages=true setup_sudo=false pubkey=PUBLICKEY'`
+`ansible-playbook site.yml -i hosts --ask-pass --ask-become-pass --limit test --extra-vars='upgrade_packages=true setup_sudo=false deploykey=false pubkey=PUBLICKEY'`
 ### debian - ansible add ssh key to remote host
 `ssh-copy-id HOSTNAME`
 ### debian - turn off ssh key checking
