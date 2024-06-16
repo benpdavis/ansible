@@ -1,11 +1,14 @@
-[test]
+[media-hosts]
 n100
 
-[debian]
+[docker-hosts]
+n100
+
+[debian-hosts]
 node
 n100
 
-[pi]
+[pi-hosts]
 pi3
 pi4
 pi5

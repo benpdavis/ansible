@@ -1,0 +1,9 @@
+---
+- name: copy Docker Compose files
+  copy:
+    src: files/{{inventory_hostname}}/
+    dest: ./{{inventory_hostname}}/
+
+- name: Run container
+  shell:
+    cmd: "docker compose -f ./{{inventory_hostname}}/docker-compose.yml up -d"

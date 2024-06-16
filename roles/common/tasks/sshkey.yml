@@ -1,0 +1,15 @@
+---
+- name: make direcotry
+  file:
+    path: "./.ssh"
+    state: directory
+
+- name: create empty file
+  file:
+    path: "./.ssh/authorized_keys"
+    state: touch
+
+- name: put pubkey
+  lineinfile:
+    path: "./.ssh/authorized_keys"
+    line: "{{ pubkey }}"

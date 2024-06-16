@@ -1,0 +1,17 @@
+---
+- name: install sudo
+  apt:
+    name: sudo
+  become: true
+  become_method: su
+  when: setup_sudo | bool == true
+
+- name: Add benjamin to sudo group
+  user:
+    name=benjamin
+    groups=sudo
+    append=yes
+    state=present
+  become: true
+  become_method: su
+  when: setup_sudo | bool == true
