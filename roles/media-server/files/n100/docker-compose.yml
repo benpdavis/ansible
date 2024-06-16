@@ -15,7 +15,7 @@ services:
       - 32414:32414/udp
     environment:
       - TZ=Europe/London
-      - PLEX_CLAIM=claim-R8gBEK-iXwCzrJ2VNPyE
+      - PLEX_CLAIM=CLAIMTOKEN
       - ADVERTISE_IP=http://{{ansible_default_ipv4.address}}:32400/
     hostname: node
     volumes:
