@@ -7,4 +7,3 @@
 - name: Run container
   shell:
     cmd: "docker compose -f ./{{inventory_hostname}}/docker-compose.yml up -d"
-  become: true
