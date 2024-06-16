@@ -1,6 +1,10 @@
 [test]
 n100
 
+[docker-hosts]
+node
+n100
+
 [apcupsd-hosts]
 node
 

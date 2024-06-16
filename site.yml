@@ -17,6 +17,6 @@
     - apcupsd
 
 - name: docker-test
-  hosts: test
+  hosts: docker-hosts
   roles:
     - docker
