@@ -12,7 +12,7 @@ services:
       - TZ=Europe/London
       - PLEX_CLAIM=PLEX_CLAIM #https://www.plex.tv/claim
       - ADVERTISE_IP=http://192.168.1.16:32400/
-    hostname: node
+    hostname: n100
     volumes:
       - /Apps/plex/config:/config
       - /tmp/transcode:/transcode
