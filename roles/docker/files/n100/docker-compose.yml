@@ -32,6 +32,5 @@ services:
       - /media/md0/Video/Movies:/Movies
       - /media/md0/Video/Series:/Series
     restart: 'unless-stopped'
-    # Optional - alternative address used for autodiscovery
     environment:
-      - JELLYFIN_PublishedServerUrl=http://n100:8096
+      - JELLYFIN_PublishedServerUrl=http://n100:8096 # Optional - alternative address used for autodiscovery
