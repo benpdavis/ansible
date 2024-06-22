@@ -6,13 +6,6 @@ services:
     restart: unless-stopped
     ports:
       - 32400:32400/tcp
-      - 8324:8324/tcp
-      - 32469:32469/tcp
-      - 1900:1900/udp
-      - 32410:32410/udp
-      - 32412:32412/udp
-      - 32413:32413/udp
-      - 32414:32414/udp
     environment:
       - TZ=Europe/London
       - PLEX_CLAIM=PLEX_CLAIM #https://www.plex.tv/claim
@@ -20,6 +13,7 @@ services:
     hostname: node
     volumes:
       - /mnt/md0/Apps/plex/config:/config
+      - /tmp/transcode:/transcode
       - /mnt/md0/Audio/Music:/Music
       - /mnt/md0/Video/Movies:/Movies
       - /mnt/md0/Video/Series:/Series
