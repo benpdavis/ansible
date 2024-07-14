@@ -1,0 +1,11 @@
+---
+
+- name: install build-essential
+  apt:
+    name: build-essential
+  become: true
+
+- name: install manpages-dev
+  apt: 
+    name: manpages-dev
+  become: true
