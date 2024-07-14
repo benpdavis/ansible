@@ -7,12 +7,3 @@
 - name: docker compose up
   shell:
     cmd: "docker compose -f ./{{inventory_hostname}}/docker-compose.yml up -d"
-
-- name: deploy portainer docker compose
-  copy:
-    src: files/portainer/
-    dest: ./portainer/
-
-- name: docker compose up
-  shell:
-    cmd: "docker compose -f ./portainer/docker-compose.yml up -d"

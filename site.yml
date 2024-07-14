@@ -16,7 +16,17 @@
   roles:
     - apcupsd
 
-- name: docker-test
+- name: docker
   hosts: docker-hosts
   roles:
     - docker
+
+- name: portainer
+  hosts: portainer-hosts
+  roles:
+    - portainer
+
+- name: traefik
+  hosts: traefik-hosts
+  roles:
+    - traefik

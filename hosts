@@ -1,6 +1,13 @@
 [test]
 n100
 
+[traefik-hosts]
+n100
+
+[portainer-hosts]
+node
+n100
+
 [docker-hosts]
 node
 n100
