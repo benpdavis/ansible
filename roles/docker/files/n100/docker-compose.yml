@@ -1,12 +1,5 @@
 ---
 services:
-  whoami:
-    image: "traefik/whoami"
-    container_name: "whoami"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`n100`)"
-      - "traefik.http.routers.whoami.entrypoints=web"
   plex:
     container_name: plex
     image: plexinc/pms-docker:latest
