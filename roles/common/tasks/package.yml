@@ -11,6 +11,11 @@
     name: cockpit
   become: true
 
+- name: install htop
+  apt:
+    name: htop
+  become: true
+
 - name: install tmux
   apt: 
     name: tmux

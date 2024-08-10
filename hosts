@@ -1,7 +1,7 @@
 [test]
 
 [samba-hosts]
-n100
+node
 
 [traefik-hosts]
 n100

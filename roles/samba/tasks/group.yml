@@ -1,0 +1,21 @@
+---
+- name: Ensure group "smbshare" exists
+  ansible.builtin.group:
+    name: smbshare
+    state: present
+  become: true
+
+- name: Add ansible_user to smbshare group
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: smbshare
+    append: yes
+  become: true
+
+- name: smbuser
+  ansible.builtin.user:
+    name: smbuser
+    shell: /shell/nologin
+    groups: smbshare
+    append: yes
+  become: true

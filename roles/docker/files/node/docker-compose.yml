@@ -1,36 +1,5 @@
 ---
 services:
-  plex:
-    container_name: plex
-    image: plexinc/pms-docker:latest
-    restart: unless-stopped
-    ports:
-      - 32400:32400/tcp
-    environment:
-      - TZ=Europe/London
-      - PLEX_CLAIM=claim-_xc2ZA1vCMVTB2VYnzK9 #https://www.plex.tv/claim
-      - ADVERTISE_IP=http://192.168.1.11:32400/
-    hostname: node
-    volumes:
-      - /Apps/plex/config:/config
-      - /tmp/transcode:/transcode
-      - /mnt/md0/Audio/Music:/Music
-      - /mnt/md0/Video/Movies:/Movies
-      - /mnt/md0/Vieo/Series:/Series
-  jellyfin:
-    image: jellyfin/jellyfin:latest
-    container_name: jellyfin
-    ports:
-      - 8096:8096
-    volumes:
-      - /Apps/jellyfin/config:/config
-      - /mnt/md0/Audio/Music:/Music
-      - /mnt/md0/Video/Movies:/Movies
-      - /mnt/md0/Vieo/Series:/Series
-    restart: 'unless-stopped'
-    environment:
-      - JELLYFIN_PublishedServerUrl=http://node:8096 # Optional - alternative address used for autodiscovery
-
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd

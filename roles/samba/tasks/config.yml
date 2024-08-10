@@ -3,3 +3,4 @@
   copy:
     src: files/smb.conf
     dest: /etc/samba/smb.conf
+  become: true

@@ -30,3 +30,8 @@
   hosts: traefik-hosts
   roles:
     - traefik
+
+- name: samba
+  hosts: samba-hosts
+  roles:
+    - samba
