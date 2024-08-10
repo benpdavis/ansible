@@ -1,0 +1,5 @@
+---
+- name: deploy samba config
+  copy:
+    src: files/smb.conf
+    dest: /etc/samba/smb.conf

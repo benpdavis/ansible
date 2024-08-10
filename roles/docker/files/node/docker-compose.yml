@@ -8,15 +8,29 @@ services:
       - 32400:32400/tcp
     environment:
       - TZ=Europe/London
-      - PLEX_CLAIM=PLEX_CLAIM #https://www.plex.tv/claim
+      - PLEX_CLAIM=claim-_xc2ZA1vCMVTB2VYnzK9 #https://www.plex.tv/claim
       - ADVERTISE_IP=http://192.168.1.11:32400/
     hostname: node
     volumes:
-      - /mnt/md0/Apps/plex/config:/config
+      - /Apps/plex/config:/config
       - /tmp/transcode:/transcode
       - /mnt/md0/Audio/Music:/Music
       - /mnt/md0/Video/Movies:/Movies
-      - /mnt/md0/Video/Series:/Series
+      - /mnt/md0/Vieo/Series:/Series
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    ports:
+      - 8096:8096
+    volumes:
+      - /Apps/jellyfin/config:/config
+      - /mnt/md0/Audio/Music:/Music
+      - /mnt/md0/Video/Movies:/Movies
+      - /mnt/md0/Vieo/Series:/Series
+    restart: 'unless-stopped'
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://node:8096 # Optional - alternative address used for autodiscovery
+
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
@@ -25,7 +39,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /mnt/md0/Apps/sabnzbd/config:/config
+      - /Apps/sabnzbd/config:/config
       - /mnt/md0/Downloads:/Downloads #optional
     ports:
       - 8080:8080
@@ -41,7 +55,8 @@ services:
       - UMASK=002
       - TZ=Europe/London
     volumes:
-      - /mnt/md0/Apps/prowlarr/config:/config
+      - /Apps/prowlarr/config:/config
+    restart: unless-stopped
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
@@ -50,7 +65,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /mnt/md0/Apps/sonarr/config:/config
+      - /Apps/sonarr/config:/config
       - /mnt/md0/Video/Series:/tv #optional
       - /mnt/md0/Downloads:/Downloads #optional
     ports:
@@ -67,9 +82,10 @@ services:
       - UMASK=002
       - TZ=Europe/London
     volumes:
-      - /mnt/md0/Apps/radarr/config:/config
+      - /Apps/radarr/config:/config
       - /mnt/md0/Video/Movies:/Movies
       - /mnt/md0/Downloads:/Downloads #optional  
+    restart: unless-stopped
   lidarr:
     image: lscr.io/linuxserver/lidarr:latest
     container_name: lidarr
@@ -78,7 +94,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /mnt/md0/Apps/lidarr/appdata/config:/config
+      - /Apps/lidarr/appdata/config:/config
       - /mnt/md0/Audio/Music:/Music #optional
       - /mnt/md0/Downloads:/Downloads #optional
     ports:

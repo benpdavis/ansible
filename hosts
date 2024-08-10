@@ -1,4 +1,6 @@
 [test]
+
+[samba-hosts]
 n100
 
 [traefik-hosts]
