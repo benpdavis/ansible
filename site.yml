@@ -3,23 +3,17 @@
   hosts: debian-hosts
   roles:
     - sudo
-    - common
-
-- name: pi
-  hosts: pi-hosts
-  roles:
-    - sudo
-    - common
-
-- name: apcupsd
-  hosts: apcupsd-hosts
-  roles:
-    - apcupsd
+    - debian
 
 - name: docker
   hosts: docker-hosts
   roles:
     - docker
+
+- name: docker-compose
+  hosts: docker-compose-hosts
+  roles:
+    - docker-compose
 
 - name: portainer
   hosts: portainer-hosts
@@ -35,3 +29,8 @@
   hosts: samba-hosts
   roles:
     - samba
+
+- name: apcupsd
+  hosts: apcupsd-hosts
+  roles:
+    - apcupsd
