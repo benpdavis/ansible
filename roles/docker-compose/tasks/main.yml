@@ -3,6 +3,7 @@
   copy:
     src: files/{{inventory_hostname}}/
     dest: /Apps/{{inventory_hostname}}/
+  become: true
 
 - name: docker compose up
   shell:
