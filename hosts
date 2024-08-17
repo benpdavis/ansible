@@ -1,12 +1,4 @@
-[test]
-
-[samba-hosts]
-node
-
-[traefik-hosts]
-n100
-
-[portainer-hosts]
+[debian-hosts]
 node
 n100
 
@@ -14,17 +6,24 @@ n100
 node
 n100
 
-[apcupsd-hosts]
-node
-
-[debian-hosts]
+[docker-compose-hosts]
 node
 n100
 
-[pi-hosts]
-pi3
-pi4
-pi5
+[portainer-hosts]
+node
+n100
+
+[traefik-hosts]
+n100
+
+[samba-hosts]
+node
+
+[apcupsd-hosts]
+node
 
 [self]
 localhost ansible_connection=local
+
+[test]

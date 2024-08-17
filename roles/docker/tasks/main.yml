@@ -2,4 +2,3 @@
 - include_tasks: repository.yml
 - include_tasks: package.yml
 - include_tasks: user.yml
-- include_tasks: container.yml
