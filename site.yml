@@ -25,6 +25,11 @@
   roles:
     - traefik
 
+- name: netbootxyz
+  hosts: netbootxyz-hosts
+  roles:
+    - netbootxyz
+
 - name: samba
   hosts: samba-hosts
   roles:

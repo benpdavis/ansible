@@ -17,6 +17,9 @@ n100
 [traefik-hosts]
 n100
 
+[netbootxyz-hosts]
+n100
+
 [samba-hosts]
 node
 
