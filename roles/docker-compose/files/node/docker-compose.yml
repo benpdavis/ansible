@@ -92,12 +92,13 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=all
       - NVIDIA_VISIBLE_DEVICES=all
     volumes:
-      - /docker/tdarr/server:/app/server
-      - /docker/tdarr/configs:/app/configs
-      - /docker/tdarr/logs:/app/logs
-      - /media:/media
-      - /transcode_cache:/temp
-
+      - /Apps/tdarr/server:/app/server
+      - /Apps/tdarr/configs:/app/configs
+      - /Apps/tdarr/logs:/app/logs
+      - /mnt/md0/Video/Series:/Series
+      - /mnt/md0/Video/Movies:/Movies
+      - /mnt/md0/Audio/Music:/Music
+      - /Apps/tdarr/transcode_cache:/temp
     devices:
       - /dev/dri:/dev/dri
     deploy:
