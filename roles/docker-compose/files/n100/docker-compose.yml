@@ -66,3 +66,30 @@ services:
       - /Apps/tdarr/transcode_cache:/temp
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
+  tdarr-node:
+    container_name: tdarr-node
+    image: ghcr.io/haveagitgat/tdarr_node:latest
+    restart: unless-stopped
+    network_mode: service:tdarr
+    environment:
+      - TZ=Europe/London
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - UMASK_SET=002
+      - nodeName=MyExternalNode
+      - serverIP=0.0.0.0
+      - serverPort=8266
+      - inContainer=true
+      - ffmpegVersion=7
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - /Apps/tdarr/server:/app/server
+      - /Apps/tdarr/configs:/app/configs
+      - /Apps/tdarr/logs:/app/logs
+      - /mnt/md0/Video/Series:/Series
+      - /mnt/md0/Video/Movies:/Movies
+      - /mnt/md0/Audio/Music:/Music
+      - /Apps/tdarr/transcode_cache:/temp
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
