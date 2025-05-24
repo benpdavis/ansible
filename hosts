@@ -11,8 +11,6 @@ node
 n100
 
 [portainer-hosts]
-node
-n100
 
 [traefik-hosts]
 n100
