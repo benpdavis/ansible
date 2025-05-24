@@ -34,3 +34,42 @@ services:
     restart: 'unless-stopped'
     environment:
       - JELLYFIN_PublishedServerUrl=http://n100:8096 # Optional - alternative address used for autodiscovery
+  tdarr:
+    container_name: tdarr
+    image: ghcr.io/haveagitgat/tdarr:latest
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 8265:8265 # webUI port
+      - 8266:8266 # server port
+    environment:
+      - TZ=Europe/London
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - UMASK_SET=002
+      - serverIP=0.0.0.0
+      - serverPort=8266
+      - webUIPort=8265
+      - internalNode=true
+      - inContainer=true
+      - ffmpegVersion=7
+      - nodeName=MyInternalNode
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - /Apps/tdarr/server:/app/server
+      - /Apps/tdarr/configs:/app/configs
+      - /Apps/tdarr/logs:/app/logs
+      - /mnt/md0/Video/Series:/Series
+      - /mnt/md0/Video/Movies:/Movies
+      - /mnt/md0/Audio/Music:/Music
+      - /Apps/tdarr/transcode_cache:/temp
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
