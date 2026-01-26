@@ -1,4 +1,9 @@
 ---
+- name: apcupsd
+  hosts: apcupsd-hosts
+  roles:
+    - apcupsd
+
 - name: debian
   hosts: debian-hosts
   roles:
@@ -15,27 +20,22 @@
   roles:
     - docker-compose
 
-- name: portainer
-  hosts: portainer-hosts
-  roles:
-    - portainer
-
-- name: traefik
-  hosts: traefik-hosts
-  roles:
-    - traefik
-
 - name: netbootxyz
   hosts: netbootxyz-hosts
   roles:
     - netbootxyz
+
+- name: portainer
+  hosts: portainer-hosts
+  roles:
+    - portainer
 
 - name: samba
   hosts: samba-hosts
   roles:
     - samba
 
-- name: apcupsd
-  hosts: apcupsd-hosts
+- name: traefik
+  hosts: traefik-hosts
   roles:
-    - apcupsd
+    - traefik
