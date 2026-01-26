@@ -1,0 +1,10 @@
+---
+- name: deploy host docker compose
+  copy:
+    src: files/
+    dest: /Apps/sabnzbd/
+  become: true
+
+- name: docker compose up
+  shell:
+    cmd: "docker compose -f /Apps/sabnzbd/docker-compose.yml up -d"
