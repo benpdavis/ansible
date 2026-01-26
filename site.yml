@@ -30,6 +30,11 @@
   roles:
     - portainer
 
+- name: ollama
+  hosts: ollama-hosts
+  roles:
+    - ollama
+
 - name: samba
   hosts: samba-hosts
   roles:

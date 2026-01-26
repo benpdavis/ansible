@@ -18,6 +18,9 @@ n100
 
 [portainer-hosts]
 
+[ollama-hosts]
+n100
+
 [samba-hosts]
 node
 
