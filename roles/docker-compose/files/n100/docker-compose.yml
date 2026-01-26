@@ -11,7 +11,7 @@ services:
     environment:
       - TZ=Europe/London
       - PLEX_CLAIM=PLEX_CLAIM #https://www.plex.tv/claim
-      - ADVERTISE_IP=http://192.168.1.16:32400/
+      - ADVERTISE_IP=http://192.168.1.12:32400/
     hostname: n100
     volumes:
       - /Apps/plex/config:/config
@@ -33,63 +33,4 @@ services:
       - /media/md0/Video/Series:/Series
     restart: 'unless-stopped'
     environment:
-      - JELLYFIN_PublishedServerUrl=http://n100:8096 # Optional - alternative address used for autodiscovery
-  tdarr:
-    container_name: tdarr
-    image: ghcr.io/haveagitgat/tdarr:latest
-    restart: unless-stopped
-    network_mode: bridge
-    ports:
-      - 8265:8265 # webUI port
-      - 8266:8266 # server port
-    environment:
-      - TZ=Europe/London
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - UMASK_SET=002
-      - serverIP=0.0.0.0
-      - serverPort=8266
-      - webUIPort=8265
-      - internalNode=true
-      - inContainer=true
-      - ffmpegVersion=7
-      - nodeName=MyInternalNode
-      - NVIDIA_DRIVER_CAPABILITIES=all
-      - NVIDIA_VISIBLE_DEVICES=all
-    volumes:
-      - /Apps/tdarr/server:/app/server
-      - /Apps/tdarr/configs:/app/configs
-      - /Apps/tdarr/logs:/app/logs
-      - /mnt/md0/Video/Series:/Series
-      - /mnt/md0/Video/Movies:/Movies
-      - /mnt/md0/Audio/Music:/Music
-      - /Apps/tdarr/transcode_cache:/temp
-    devices:
-      - /dev/dri/renderD128:/dev/dri/renderD128
-  tdarr-node:
-    container_name: tdarr-node
-    image: ghcr.io/haveagitgat/tdarr_node:latest
-    restart: unless-stopped
-    network_mode: service:tdarr
-    environment:
-      - TZ=Europe/London
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - UMASK_SET=002
-      - nodeName=MyExternalNode
-      - serverIP=0.0.0.0
-      - serverPort=8266
-      - inContainer=true
-      - ffmpegVersion=7
-      - NVIDIA_DRIVER_CAPABILITIES=all
-      - NVIDIA_VISIBLE_DEVICES=all
-    volumes:
-      - /Apps/tdarr/server:/app/server
-      - /Apps/tdarr/configs:/app/configs
-      - /Apps/tdarr/logs:/app/logs
-      - /mnt/md0/Video/Series:/Series
-      - /mnt/md0/Video/Movies:/Movies
-      - /mnt/md0/Audio/Music:/Music
-      - /Apps/tdarr/transcode_cache:/temp
-    devices:
-      - /dev/dri/renderD128:/dev/dri/renderD128
+      - JELLYFIN_PublishedServerUrl=http://n100.lan:8096 # Optional - alternative address used for autodiscovery
