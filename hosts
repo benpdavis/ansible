@@ -1,20 +1,19 @@
 [apcupsd-hosts]
-node
 
 [debian-hosts]
 node
-n100
+node2
 
 [docker-hosts]
 node
-n100
+node2
 
 [docker-compose-hosts]
 node
-n100
+node2
 
 [netbootxyz-hosts]
-n100
+node2
 
 [portainer-hosts]
 
@@ -24,7 +23,7 @@ n100
 node
 
 [traefik-hosts]
-n100
+node2
 
 [self]
 localhost ansible_connection=local
