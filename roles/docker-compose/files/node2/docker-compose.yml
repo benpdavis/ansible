@@ -11,8 +11,8 @@ services:
     environment:
       - TZ=Europe/London
       - PLEX_CLAIM=PLEX_CLAIM #https://www.plex.tv/claim
-      - ADVERTISE_IP=http://192.168.1.16:32400/
-    hostname: n100
+      - ADVERTISE_IP=http://node2:32400/
+    hostname: node2
     volumes:
       - /Apps/plex/config:/config
       - /tmp/transcode:/transcode
@@ -33,4 +33,4 @@ services:
       - /media/md0/Video/Series:/Series
     restart: 'unless-stopped'
     environment:
-      - JELLYFIN_PublishedServerUrl=http://n100:8096 # Optional - alternative address used for autodiscovery
+      - JELLYFIN_PublishedServerUrl=http://node2:8096 # Optional - alternative address used for autodiscovery
