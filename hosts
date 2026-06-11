@@ -15,7 +15,6 @@ node
 node2
 
 [netbootxyz-hosts]
-node2
 
 [portainer-hosts]
 
@@ -25,7 +24,6 @@ node2
 node
 
 [traefik-hosts]
-node2
 
 [self]
 localhost ansible_connection=local
