@@ -2,6 +2,8 @@
 
 [debian-hosts]
 node
+
+[ubuntu-hosts]
 node2
 
 [docker-hosts]
