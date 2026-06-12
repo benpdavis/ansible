@@ -2,4 +2,29 @@
 - name: install docker-ce
   apt:
     name: docker-ce
+    update_cache: yes
+  become: true
+
+- name: install docker-ce
+  apt:
+    name: docker-ce-cli
+    update_cache: yes
+  become: true
+
+- name: install docker-ce
+  apt:
+    name: containerd.io
+    update_cache: yes
+  become: true
+
+- name: install docker-ce
+  apt:
+    name: docker-buildx-plugin
+    update_cache: yes
+  become: true
+
+- name: install docker-ce
+  apt:
+    name: docker-compose-plugin
+    update_cache: yes
   become: true
