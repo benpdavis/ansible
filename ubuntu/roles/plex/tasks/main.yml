@@ -3,8 +3,8 @@
   template:
     src: templates/docker-compose.yml.j2
     dest: /Apps/plex/docker-compose.yml
-    owner: {{ansible_user}}
-    group: {{ansible_user}}
+    owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
     mode: '0644'
   become: true
 

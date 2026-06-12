@@ -4,21 +4,10 @@
   roles:
     - apcupsd
 
-- name: debian
-  hosts: debian-hosts
-  roles:
-    - sudo
-    - debian
-
 - name: docker
   hosts: docker-hosts
   roles:
     - docker
-
-- name: docker-compose
-  hosts: docker-compose-hosts
-  roles:
-    - docker-compose
 
 - name: netbootxyz
   hosts: netbootxyz-hosts

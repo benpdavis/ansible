@@ -3,7 +3,7 @@ services:
   plex:
     image: plexinc/pms-docker:latest
     container_name: plex
-    hostname: {{ansible_hostname}}
+    hostname: {{ ansible_hostname}}
     restart: unless-stopped
     ports:
       - 32400:32400/tcp
@@ -12,7 +12,7 @@ services:
     environment:
       - TZ=Europe/London
       - PLEX_CLAIM=PLEX_CLAIM #https://www.plex.tv/claim
-      - ADVERTISE_IP=http://{{ansible_hostname}}:32400/
+      - ADVERTISE_IP=http://{{ ansible_hostname }}:32400/
     volumes:
       - /Apps/plex/config:/config
       - /tmp/transcode:/transcode
