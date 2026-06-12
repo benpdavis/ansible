@@ -25,6 +25,11 @@
   roles:
     - netbootxyz
 
+- name: plex
+  hosts: plex-hosts
+  roles:
+    - plex
+
 - name: portainer
   hosts: portainer-hosts
   roles:
