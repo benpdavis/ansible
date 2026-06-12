@@ -1,0 +1,25 @@
+[apcupsd-hosts]
+
+[docker-hosts]
+node2.lan
+
+[docker-compose-hosts]
+
+[jellyfin-hosts]
+[lidarr-hosts]
+[netbootxyz-hosts]
+[ollama-hosts]
+
+[plex-hosts]
+node2.lan
+
+[portainer-hosts]
+[prowlarr-hosts]
+[radarr-hosts]
+[sabnzb-hosts]
+[samba-hosts]
+[sonarr-hosts]
+[traefik-hosts]
+
+[self]
+localhost ansible_connection=local

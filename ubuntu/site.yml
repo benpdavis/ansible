@@ -1,0 +1,51 @@
+---
+- name: apcupsd
+  hosts: apcupsd-hosts
+  roles:
+    - apcupsd
+
+- name: debian
+  hosts: debian-hosts
+  roles:
+    - sudo
+    - debian
+
+- name: docker
+  hosts: docker-hosts
+  roles:
+    - docker
+
+- name: docker-compose
+  hosts: docker-compose-hosts
+  roles:
+    - docker-compose
+
+- name: netbootxyz
+  hosts: netbootxyz-hosts
+  roles:
+    - netbootxyz
+
+- name: plex
+  hosts: plex-hosts
+  roles:
+    - plex
+
+- name: portainer
+  hosts: portainer-hosts
+  roles:
+    - portainer
+
+- name: ollama
+  hosts: ollama-hosts
+  roles:
+    - ollama
+
+- name: samba
+  hosts: samba-hosts
+  roles:
+    - samba
+
+- name: traefik
+  hosts: traefik-hosts
+  roles:
+    - traefik

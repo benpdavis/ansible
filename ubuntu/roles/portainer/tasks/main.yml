@@ -1,0 +1,10 @@
+---
+- name: deploy portainer docker compose
+  copy:
+    src: files/
+    dest: /Apps/portainer/
+  become: true
+
+- name: docker compose up
+  shell:
+    cmd: "docker compose -f /Apps/portainer/docker-compose.yml up -d"

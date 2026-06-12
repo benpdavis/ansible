@@ -1,0 +1,15 @@
+---
+- name: install samba
+  apt:
+    name: samba
+  become: true
+
+- name: install smbclient
+  apt:
+    name: smbclient
+  become: true
+
+- name: install cifs-utils
+  apt:
+    name: cifs-utils
+  become: true

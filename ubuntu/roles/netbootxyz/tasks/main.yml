@@ -1,0 +1,10 @@
+---
+- name: deploy tranetbootxyzefik docker compose
+  copy:
+    src: files/
+    dest: /Apps/netbootxyz/
+  become: true
+
+- name: docker compose up
+  shell:
+    cmd: "docker compose -f /Apps/netbootxyz/docker-compose.yml up -d"

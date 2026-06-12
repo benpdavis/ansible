@@ -1,0 +1,5 @@
+---
+- name: enable apache cgi
+  shell: 
+    cmd: a2enmod cgi
+  become: true

@@ -1,0 +1,7 @@
+---
+- name: "Comment out the line"
+  replace:
+    path: /etc/apcupsd/apcupsd.conf
+    regexp: '(^DEVICE.*)'
+    replace: '#\1'
+  become: true
