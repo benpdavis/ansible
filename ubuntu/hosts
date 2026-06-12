@@ -1,7 +1,7 @@
 [apcupsd-hosts]
 
 [docker-hosts]
-node2.lan
+node2.lan ansible_become_exe=/usr/bin/sudo.ws
 
 [docker-compose-hosts]
 
@@ -11,7 +11,7 @@ node2.lan
 [ollama-hosts]
 
 [plex-hosts]
-node2.lan
+node2.lan 
 
 [portainer-hosts]
 [prowlarr-hosts]
