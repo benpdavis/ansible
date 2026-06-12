@@ -2,6 +2,7 @@
 
 [docker-hosts]
 node2.lan ansible_become_exe=/usr/bin/sudo.ws
+node3.lan ansible_become_exe=/usr/bin/sudo.ws
 
 [docker-compose-hosts]
 
