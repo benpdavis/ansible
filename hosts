@@ -4,19 +4,19 @@
 node
 
 [ubuntu-hosts]
-node2
 
 [docker-hosts]
 node
-node2
 
 [docker-compose-hosts]
 node
-node2
 
 [netbootxyz-hosts]
 
 [portainer-hosts]
+
+[plex-hosts]
+node2.lan ansible_user=benjamin
 
 [ollama-hosts]
 
